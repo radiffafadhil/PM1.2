@@ -86,7 +86,7 @@
               />
              </div>
             <div class="form-group">
-              <button type="submit" class="btn btn-green shadow-none" name="login_user">
+              <button type="submit" class="btn btn-green shadow-none" name="login">
                 Login
               </button>
             </div>

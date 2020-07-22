@@ -6,6 +6,7 @@
 	$email    = "";
 	$username = "";
 	$telp = "";
+	$level = "";
 	$errors = array(); 
 	$_SESSION['success'] = "";
 
@@ -53,7 +54,7 @@
 	// ... 
 
 	// LOGIN USER
-	if (isset($_POST['login_user'])) {
+	if (isset($_POST['login'])) {
 		// $nama = mysqli_real_escape_string($db, $_POST['nama']);
 		// $email = mysqli_real_escape_string($db, $_POST['email']);
 		$username = mysqli_real_escape_string($db, $_POST['username']);
@@ -80,17 +81,26 @@
 			$password = md5($password);
 			$query = "SELECT * FROM user WHERE username='$username' AND password='$password'";
 			$results = mysqli_query($db, $query);
+			$data = mysqli_fetch_assoc($results);
 
-			if (mysqli_num_rows($results) == 1) {
-				// $_SESSION['nama'] = $nama;
-				// $_SESSION['email'] = $email;
+			if ($data['level']=="admin"){
 				$_SESSION['username'] = $username;
-				// $_SESSION['telp'] = $telp;
-				$_SESSION['success'] = "You are now logged in";
-				header('location: index.php');
-			}else {
-				array_push($errors, "salah kombinasi");
+				$_SESSION['level'] = "admin";
+				header("location:index_admin.php");
+			}else{
+				header("location:index_user.php");
 			}
+
+			// if (mysqli_num_rows($results) == 1) {
+			// 	// $_SESSION['nama'] = $nama;
+			// 	// $_SESSION['email'] = $email;
+			// 	$_SESSION['username'] = $username;
+			// 	// $_SESSION['telp'] = $telp;
+			// 	$_SESSION['success'] = "You are now logged in";
+			// 	header('location: index.php');
+			// }else {
+			// 	array_push($errors, "salah kombinasi");
+			// }
 		}
 	}
 
