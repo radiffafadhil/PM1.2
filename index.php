@@ -1,133 +1,127 @@
-<?php 
-	session_start(); 
-
-	if (!isset($_SESSION['username'])) {
-		$_SESSION['msg'] = "You must log in first";
-		header('location: login.php');
-	}
-
-	if (isset($_GET['logout'])) {
-		session_destroy();
-		unset($_SESSION['username']);
-		header("location: login.php");
-	}
-
-?>
+<?php include('server.php') ?>
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
 
-<head>
+    <style>
+      .middle {
+        height: 100vh;
+      }
+      .green {
+        color: #00a547;
+      }
+      .head-title p {
+        font-size: 28px;
+      }
+      .head-title h5 {
+        font-size: 23px;
+      }
+      .logo-img {
+        width: 80px;
+        margin-right: 0.5em;
+      }
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-  <title>Simple Sidebar - Start Bootstrap Template</title>
-
-  <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Custom styles for this template -->
-  <link href="css/simple-sidebar.css" rel="stylesheet">
-
-</head>
-
-<body>
-
-  <div class="d-flex" id="wrapper">
-
-    <!-- Sidebar -->
-    <div class="bg-light border-right" id="sidebar-wrapper">
-      <div class="sidebar-heading">Start Bootstrap </div>
-      <div class="list-group list-group-flush">
-        <a href="#" class="list-group-item list-group-item-action bg-light">Dashboard</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Shortcuts</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Overview</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Events</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Status</a>
-      </div>
-    </div>
-    <!-- /#sidebar-wrapper -->
-
-    <!-- Page Content -->
-    <div id="page-content-wrapper">
-
-      <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-        <button class="btn btn-primary" id="menu-toggle">Toggle Menu</button>
-
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown
-              </a>
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </li>
-          </ul>
+      form {
+        margin-top: 1.5em;
+      }
+      input {
+        border: 1px solid #00a547 !important;
+      }
+      input:focus {
+        box-shadow: 0 0 2px 2px rgba(0, 165, 71, 0.5) !important;
+      }
+      .btn-green {
+        width: 100%;
+        background-color: #00a547;
+        color: white;
+        border: none;
+        padding: 0.5em;
+      }
+      .btn-green:hover {
+        color: white;
+        background-color: #00b34d;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="middle row justify-content-center align-items-center">
+        <div class="col-10 col-md-8 col-lg-4">
+          <div class="head-form row justify-content-center align-items-center">
+            <img src="./medan.jpg" class="logo-img" alt="logo" />
+            <div class="head-title green">
+              <p>Laporan Pengaduan</p>
+              <h5>Masyarakat Kota Medan</h5>
+            </div>
+          </div>
+          <form method="post" action="index.php">
+            <?php include('errors.php'); ?>
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control shadow-none"
+                id="inpuText"
+                placeholder="Username"
+                required="required"
+                name="username"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="password"
+                class="form-control shadow-none"
+                id="inputPassword"
+                placeholder="Password"
+                required="required"
+                name="password"
+              />
+            </div>
+            <div class="form-group">
+              <button
+                type="submit"
+                class="btn btn-green shadow-none"
+                name="login"
+              >
+                Login
+              </button>
+            </div>
+            <center>
+              <p>Belum punya akun? <a href="register_user.php">DAFTAR</a>.</p>
+            </center>
+            <center>
+              <p>
+                Ingin Lapor Secara Anonim?
+                <a href="anonim.html">KLIK DISINI</a>.
+              </p>
+            </center>
+          </form>
         </div>
-      </nav>
-
-      <div class="container-fluid">
-        <h1 class="mt-4">Simple Sidebar</h1>
-        <p>The starting state of the menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will change.</p>
-        <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>. The top navbar is optional, and just for demonstration. Just create an element with the <code>#menu-toggle</code> ID which will toggle the menu when clicked.</p>
       </div>
     </div>
-    <!-- /#page-content-wrapper -->
-    <div class="content">
 
-<!-- notification message -->
-<?php if (isset($_SESSION['success'])) : ?>
-  <div class="error success" >
-    <h3>
-      <?php 
-        echo $_SESSION['success']; 
-        unset($_SESSION['success']);
-      ?>
-    </h3>
-  </div>
-<?php endif ?>
-
-<!-- logged in user information -->
-<?php  if (isset($_SESSION['username'])) : ?>
-  <p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
-  <p> <a href="index.php?logout='1'" style="color: red;">logout</a> </p>
-<?php endif ?>
-</div>
-  </div>
-
-  
-  <!-- /#wrapper -->
-
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Menu Toggle Script -->
-  <script>
-    $("#menu-toggle").click(function(e) {
-      e.preventDefault();
-      $("#wrapper").toggleClass("toggled");
-    });
-  </script>
-
-</body>
-
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>

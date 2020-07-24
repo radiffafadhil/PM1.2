@@ -64,7 +64,7 @@
             </div>
           </div>
           <form method="post" action="register.php">
-          <?php include('errors.php'); ?>
+            <?php include('errors.php'); ?>
 
             <div class="form-group">
               <input
@@ -145,13 +145,15 @@
               </label>
             </div>
             <div class="form-group">
-              <button type="submit" class="btn btn-green shadow-none" name="reg_user">
+              <button
+                type="submit"
+                class="btn btn-green shadow-none"
+                name="reg_user"
+              >
                 DAFTAR
               </button>
             </div>
-            <p>
-			Already a member? <a href="login.php">Sign in</a>
-		</p>
+            <p>Already a member? <a href="index.php">Sign in</a></p>
           </form>
         </div>
       </div>

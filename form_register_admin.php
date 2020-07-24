@@ -63,16 +63,52 @@
               <h5>Masyarakat Kota Medan</h5>
             </div>
           </div>
-          <form method="post" action="login.php">
-          <?php include('errors.php'); ?>
+          <form method="post" action="register.php">
+            <?php include('errors.php'); ?>
+
             <div class="form-group">
               <input
                 type="text"
                 class="form-control shadow-none"
-                id="inpuText"
+                id="inputText"
+                placeholder="Nama Lengkap"
+                required="required"
+                name="nama"
+                value="<?php echo $nama; ?>"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="email"
+                class="form-control shadow-none"
+                id="inputEmail"
+                aria-describedby="emailHelp"
+                placeholder="Email"
+                required="required"
+                name="email"
+                value="<?php echo $email; ?>"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control shadow-none"
+                id="inputText"
                 placeholder="Username"
                 required="required"
                 name="username"
+                value="<?php echo $username; ?>"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control shadow-none"
+                id="inputText"
+                placeholder="No. Telp"
+                required="required"
+                name="telp"
+                value="<?php echo $telp; ?>"
               />
             </div>
             <div class="form-group">
@@ -82,20 +118,42 @@
                 id="inputPassword"
                 placeholder="Password"
                 required="required"
-                name="password"
+                name="password_1"
               />
-             </div>
+            </div>
             <div class="form-group">
-              <button type="submit" class="btn btn-green shadow-none" name="login">
-                Login
+              <input
+                type="password"
+                class="form-control shadow-none"
+                id="inputPassword"
+                placeholder="Konfirmasi Password"
+                required="required"
+                name="password_2"
+              />
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="defaultCheck1"
+                required="required"
+              />
+              <label class="form-check-label" for="defaultCheck1">
+                Saya telah membaca dan menyetujui
+                <a href="terms-of-use.html">Syarat dan Ketentuan Layanan</a>
+              </label>
+            </div>
+            <div class="form-group">
+              <button
+                type="submit"
+                class="btn btn-green shadow-none"
+                name="reg_user"
+              >
+                DAFTAR
               </button>
             </div>
-            <center>
-              <p>Belum punya akun? <a href="register.php">DAFTAR</a>.</p>
-            </center>
-            <center>
-              <p>Ingin Lapor Secara Anonim? <a href="anonim.html">KLIK DISINI</a>.</p>
-            </center>
+            <p>Already a member? <a href="index.php">Sign in</a></p>
           </form>
         </div>
       </div>
