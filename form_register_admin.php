@@ -1,4 +1,4 @@
-<?php include('server.php') ?>
+<?php include('config.php') ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -63,7 +63,7 @@
               <h5>Masyarakat Kota Medan</h5>
             </div>
           </div>
-          <form method="post" action="register.php">
+          <form method="post" action="form_register_admin.php">
             <?php include('errors.php'); ?>
 
             <div class="form-group">
@@ -148,7 +148,7 @@
               <button
                 type="submit"
                 class="btn btn-green shadow-none"
-                name="reg_user"
+                name="reg_admin"
               >
                 DAFTAR
               </button>

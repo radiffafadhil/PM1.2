@@ -55,7 +55,7 @@
   <body>
     <div class="container">
       <div class="middle row justify-content-center align-items-center">
-        <div class="col-10 col-md-8 col-lg-4">
+        <div class="col-10 col-md-5 col-lg-8">
           <div class="head-form row justify-content-center align-items-center">
             <img src="./medan.jpg" class="logo-img" alt="logo" />
             <div class="head-title green">
@@ -63,7 +63,7 @@
               <h5>Masyarakat Kota Medan</h5>
             </div>
           </div>
-          <form method="post" action="form_register_user.php">
+          <form method="post" action="form_anonim.php">
             <?php include('errors.php'); ?>
 
             <div class="form-group">
@@ -148,13 +148,12 @@
               <button
                 type="submit"
                 class="btn btn-green shadow-none"
-                name="reg_user"
+                name="reg_admin"
               >
                 DAFTAR
               </button>
             </div>
             <p>Already a member? <a href="index.php">Sign in</a></p>
-            <p>Daftar Sebagai Admin?<a href="form_register_admin.php">Klik Disini</a></p>
           </form>
         </div>
       </div>

@@ -46,14 +46,14 @@
       <div class="bg-light border-right" id="sidebar-wrapper">
         <div class="sidebar-heading">Start Bootstrap</div>
         <div class="list-group list-group-flush">
-          <a href="#" class="list-group-item list-group-item-action bg-light"
-            >Dashboard</a
+          <a href="admin.php" class="list-group-item list-group-item-action bg-light"
+            >Admin</a
           >
-          <a href="#" class="list-group-item list-group-item-action bg-light"
-            >Shortcuts</a
+          <a href="pelapor.php" class="list-group-item list-group-item-action bg-light"
+            >Pelapor</a
           >
-          <a href="#" class="list-group-item list-group-item-action bg-light"
-            >Overview</a
+          <a href="anonim.php" class="list-group-item list-group-item-action bg-light"
+            >Anonim</a
           >
           <a href="#" class="list-group-item list-group-item-action bg-light"
             >Events</a

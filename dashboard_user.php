@@ -41,40 +41,11 @@
   </head>
 
   <body>
-    <div class="d-flex" id="wrapper">
-      <!-- Sidebar -->
-      <div class="bg-light border-right" id="sidebar-wrapper">
-        <div class="sidebar-heading">Start Bootstrap</div>
-        <div class="list-group list-group-flush">
-          <a href="#" class="list-group-item list-group-item-action bg-light"
-            >Dashboard</a
-          >
-          <a href="#" class="list-group-item list-group-item-action bg-light"
-            >Shortcuts</a
-          >
-          <a href="#" class="list-group-item list-group-item-action bg-light"
-            >Overview</a
-          >
-          <a href="#" class="list-group-item list-group-item-action bg-light"
-            >Events</a
-          >
-          <a href="#" class="list-group-item list-group-item-action bg-light"
-            >Profile</a
-          >
-          <a href="#" class="list-group-item list-group-item-action bg-light"
-            >Status</a
-          >
-        </div>
-      </div>
-      <!-- /#sidebar-wrapper -->
-
-      <!-- Page Content -->
       <div id="page-content-wrapper">
         <nav
           class="navbar navbar-expand-lg navbar-dark border-bottom"
           style="background-color: #00a547;"
         >
-          <button class="btn btn-primary" id="menu-toggle">Toggle Menu</button>
 
           <button
             class="navbar-toggler"
@@ -193,26 +164,5 @@
       integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
       crossorigin="anonymous"
     ></script>
-
-    <!-- Menu Toggle Script -->
-    <script>
-      $("#menu-toggle").click(function (e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-      });
-
-      $(".collapse navbar-collapse").click(function () {
-        var menu = $(this).attr("id");
-        if (menu == "home") {
-          $(".badan").load("home.php");
-        } else if (menu == "tentang") {
-          $(".badan").load("tentang.php");
-        } else if (menu == "tutorial") {
-          $(".badan").load("tutorial.php");
-        } else if (menu == "sosmed") {
-          $(".badan").load("sosmed.php");
-        }
-      });
-    </script>
   </body>
 </html>

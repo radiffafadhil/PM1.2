@@ -1,4 +1,4 @@
-<?php include('server.php') ?>
+<?php include('config.php') ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -95,12 +95,12 @@
               </button>
             </div>
             <center>
-              <p>Belum punya akun? <a href="register_user.php">DAFTAR</a>.</p>
+              <p>Belum punya akun? <a href="form_register_user.php">DAFTAR</a>.</p>
             </center>
             <center>
               <p>
                 Ingin Lapor Secara Anonim?
-                <a href="anonim.html">KLIK DISINI</a>.
+                <a href="anonim.php">KLIK DISINI</a>.
               </p>
             </center>
           </form>
@@ -123,5 +123,6 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
+    
   </body>
 </html>
