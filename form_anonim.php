@@ -36,7 +36,19 @@
       input {
         border: 1px solid #00a547 !important;
       }
+      textarea {
+        border: 1px solid #00a547 !important;
+      }
+      select {
+        border: 1px solid #00a547 !important;
+      }
       input:focus {
+        box-shadow: 0 0 2px 2px rgba(0, 165, 71, 0.5) !important;
+      }
+      textarea:focus {
+        box-shadow: 0 0 2px 2px rgba(0, 165, 71, 0.5) !important;
+      }
+      select:focus {
         box-shadow: 0 0 2px 2px rgba(0, 165, 71, 0.5) !important;
       }
       .btn-green {
@@ -67,93 +79,63 @@
             <?php include('errors.php'); ?>
 
             <div class="form-group">
+            <label for="kategori">Judul :</label>
               <input
                 type="text"
                 class="form-control shadow-none"
                 id="inputText"
-                placeholder="Nama Lengkap"
                 required="required"
                 name="nama"
                 value="<?php echo $nama; ?>"
               />
             </div>
             <div class="form-group">
-              <input
-                type="email"
+            <label for="kategori">Laporan :</label>
+              <textarea
                 class="form-control shadow-none"
-                id="inputEmail"
-                aria-describedby="emailHelp"
-                placeholder="Email"
                 required="required"
-                name="email"
                 value="<?php echo $email; ?>"
-              />
+              ></textarea>
             </div>
             <div class="form-group">
+            <label for="kategori">Tanggal Kejadian :</label>
               <input
-                type="text"
+                type="date"
                 class="form-control shadow-none"
-                id="inputText"
-                placeholder="Username"
+                id="inputDate"
                 required="required"
                 name="username"
                 value="<?php echo $username; ?>"
               />
             </div>
             <div class="form-group">
+            <label for="kategori">Lokasi/Alamat:</label>
               <input
                 type="text"
                 class="form-control shadow-none"
                 id="inputText"
-                placeholder="No. Telp"
                 required="required"
                 name="telp"
                 value="<?php echo $telp; ?>"
               />
             </div>
             <div class="form-group">
-              <input
-                type="password"
-                class="form-control shadow-none"
-                id="inputPassword"
-                placeholder="Password"
-                required="required"
-                name="password_1"
-              />
-            </div>
-            <div class="form-group">
-              <input
-                type="password"
-                class="form-control shadow-none"
-                id="inputPassword"
-                placeholder="Konfirmasi Password"
-                required="required"
-                name="password_2"
-              />
-            </div>
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                value=""
-                id="defaultCheck1"
-                required="required"
-              />
-              <label class="form-check-label" for="defaultCheck1">
-                Saya telah membaca dan menyetujui
-                <a href="terms-of-use.html">Syarat dan Ketentuan Layanan</a>
-              </label>
+              <label for="kategori">Kategori:</label>
+              <select class="form-control" id="kategori">
+                <option></option>
+                <option>Aduan</option>
+                <option>Saran</option>
+              </select>
             </div>
             <div class="form-group">
               <button
                 type="submit"
                 class="btn btn-green shadow-none"
-                name="reg_admin"
+                name="lap_anonim"
               >
-                DAFTAR
+                LAPOR !
               </button>
             </div>
-            <p>Already a member? <a href="index.php">Sign in</a></p>
           </form>
         </div>
       </div>

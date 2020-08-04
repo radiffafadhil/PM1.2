@@ -8,12 +8,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <title>Pendaftaran MahaSiswa Baru</title>
+    <title>ANONIM</title>
 </head>
 
 <body>
     <header>
-        <h3>MahaSiswa yang sudah mendaftar</h3>
+        <h3>LIST LAPORAN ANONIM</h3>
     </header>
 
     <nav>
@@ -21,14 +21,14 @@
     </nav>
 
     <table class="table">
-  <thead class="thead-dark">
+  <thead class="bg-success">
     <tr>
-      <th scope="col">NIM</th>
-      <th scope="col">Nama</th>
-      <th scope="col">Tanggal Lahir</th>
-      <th scope="col">Alamat</th>
+      <th scope="col">Judul</th>
+      <th scope="col">Tanggal</th>
+      <th scope="col">Detail</th>
+      <!-- <th scope="col">Alamat</th>
       <th scope="col">Jenis Kelamin</th>
-      <th scope="col">Tindakan</th>
+      <th scope="col">Tindakan</th> -->
     </tr>
   </thead>
   <tbody>
@@ -36,18 +36,13 @@
         $sql = "SELECT * FROM anonim";
         $query = mysqli_query($db, $sql);
 
-        while($mahasiswa = mysqli_fetch_array($query)){
+        while($anonim = mysqli_fetch_array($query)){
             echo "<tr>";
 
-            echo "<td>".$mahasiswa['nim']."</td>";
-            echo "<td>".$mahasiswa['nama']."</td>";
-            echo "<td>".$mahasiswa['tgl_lahir']."</td>";
-            echo "<td>".$mahasiswa['alamat']."</td>";
-            echo "<td>".$mahasiswa['jenis_kelamin']."</td>";
-            
+            echo "<td>".$anonim['judul']."</td>";
+            echo "<td>".$anonim['tgl']."</td>";          
             echo "<td>";
-            echo "<a href='form-edit.php?nim=".$mahasiswa['nim']."'>Edit</a> | ";
-            echo "<a href='hapus.php?nim=".$mahasiswa['nim']."'>Hapus</a>";
+            echo "<a href='detail.php'>Lihat</a>";
             echo "</td>";
 
             echo "</tr>";

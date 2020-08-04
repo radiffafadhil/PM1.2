@@ -14,10 +14,6 @@
 
 	// connect to database
 	$db = mysqli_connect('localhost', 'root', '', 'pm12');
-// Check connection
-if (mysqli_connect_errno()){
-	echo "Koneksi database gagal : " . mysqli_connect_error();
-}
 	// REGISTER USER
 	if (isset($_POST['reg_user'])) {
 		// receive all input values from the form
@@ -89,27 +85,42 @@ if (mysqli_connect_errno()){
 
 	}
 
+	// lapor anonim
+	if(isset($_POST['lap_anonim'])){
+
+		// ambil data dari formulir
+		$judul = $_POST['judul'];                                       
+		$isi = $_POST['isi'];
+		$tgl = $_POST['tgl'];
+		$lokasi = $_POST['lokasi'];
+		$kategori = $_POST['kategori'];
+			
+	
+		// buat query
+		$sql = "INSERT INTO anonim (judul, isi, tgl, lokasi, kategori) 
+		VALUE ('$judul', '$isi', '$tgl', '$lokasi', '$kategori')";
+		$query = mysqli_query($db, $sql);
+	
+		// apakah query simpan berhasil?
+		if( $query ) {
+			// kalau berhasil alihkan ke halaman index.php dengan status=sukses
+			header('Location: anonim.php?status=sukses');
+		} else {
+			// kalau gagal alihkan ke halaman indek.php dengan status=gagal
+			header('Location: anonim.php?status=gagal');
+		}
+	}
+
 	// ... 
 
 	// LOGIN USER
 	if (isset($_POST['login'])) {
-		// $nama = mysqli_real_escape_string($db, $_POST['nama']);
-		// $email = mysqli_real_escape_string($db, $_POST['email']);
 		$username = mysqli_real_escape_string($db, $_POST['username']);
-		// $telp = mysqli_real_escape_string($db, $_POST['telp']);
 		$password = mysqli_real_escape_string($db, $_POST['password']);
-		// if (empty($nama)) {
-		// 	array_push($errors, "Nama is required");
-		// }
-		// if (empty($email)) {
-		// 	array_push($errors, "Email is required");
-		// }
+
 		if (empty($username)) {
 			array_push($errors, "Username is required");
 		}
-		// if (empty($telp)) {
-		// 	array_push($errors, "Telp is required");
-		// }
 		if (empty($password)) {
 			array_push($errors, "Password is required");
 		}
@@ -128,20 +139,13 @@ if (mysqli_connect_errno()){
 				$_SESSION['level'] = "user";
 				header("location:dashboard_user.php");
 			}
+			else if (mysqli_num_rows($results) == 1) {
+				$_SESSION['username'] = $username;
+				$_SESSION['success'] = "You are now logged in";
+			}
 			else {
 				array_push($errors, "Wrong username/password combination");
 			}
-
-			// if (mysqli_num_rows($results) == 1) {
-			// 	// $_SESSION['nama'] = $nama;
-			// 	// $_SESSION['email'] = $email;
-			// 	$_SESSION['username'] = $username;
-			// 	// $_SESSION['telp'] = $telp;
-			// 	$_SESSION['success'] = "You are now logged in";
-			// 	//header('location: index.php');
-			// }else {
-			// 	array_push($errors, "salah kombinasi");
-			// }
 		}
 	}
 
