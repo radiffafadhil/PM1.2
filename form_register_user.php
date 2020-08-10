@@ -65,7 +65,16 @@
           </div>
           <form method="post" action="form_register_user.php">
             <?php include('errors.php'); ?>
-
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control shadow-none"
+                id="inputText"
+                placeholder="NIK/No.KK"
+                required="required"
+                name="nama"
+              />
+            </div>
             <div class="form-group">
               <input
                 type="text"

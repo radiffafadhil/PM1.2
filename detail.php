@@ -15,7 +15,7 @@ table, th, td {
 </Style>
 <body>
 <table style="width:100%">
-  <tr>
+  <!-- <tr>
     <th>Firstname</th>
     <th>Lastname</th>
     <th>Age</th>
@@ -29,7 +29,7 @@ table, th, td {
     <td>Eve</td>
     <td>Jackson</td>
     <td>94</td>
-  </tr>
+  </tr> -->
   <tbody>
   <?php
         $sql = "SELECT * FROM anonim";

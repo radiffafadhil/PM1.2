@@ -136,6 +136,7 @@
                 LAPOR !
               </button>
             </div>
+            <p>Kembali Ke Halaman Utama <a href="index.php">HOME</a></p>
           </form>
         </div>
       </div>

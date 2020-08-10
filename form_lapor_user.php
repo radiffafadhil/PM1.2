@@ -36,7 +36,19 @@
       input {
         border: 1px solid #00a547 !important;
       }
+      textarea {
+        border: 1px solid #00a547 !important;
+      }
+      select {
+        border: 1px solid #00a547 !important;
+      }
       input:focus {
+        box-shadow: 0 0 2px 2px rgba(0, 165, 71, 0.5) !important;
+      }
+      textarea:focus {
+        box-shadow: 0 0 2px 2px rgba(0, 165, 71, 0.5) !important;
+      }
+      select:focus {
         box-shadow: 0 0 2px 2px rgba(0, 165, 71, 0.5) !important;
       }
       .btn-green {
@@ -55,7 +67,7 @@
   <body>
     <div class="container">
       <div class="middle row justify-content-center align-items-center">
-        <div class="col-10 col-md-8 col-lg-4">
+        <div class="col-10 col-md-5 col-lg-8">
           <div class="head-form row justify-content-center align-items-center">
             <img src="./medan.jpg" class="logo-img" alt="logo" />
             <div class="head-title green">
@@ -63,46 +75,68 @@
               <h5>Masyarakat Kota Medan</h5>
             </div>
           </div>
-          <form method="post" action="index.php">
+          <form method="post" action="form_anonim.php">
             <?php include('errors.php'); ?>
+
             <div class="form-group">
+            <label for="kategori">Judul :</label>
               <input
                 type="text"
                 class="form-control shadow-none"
-                id="inpuText"
-                placeholder="Username"
+                id="inputText"
                 required="required"
-                name="username"
+                name="nama"
+                value="<?php echo $nama; ?>"
               />
             </div>
             <div class="form-group">
-              <input
-                type="password"
+            <label for="kategori">Laporan :</label>
+              <textarea
                 class="form-control shadow-none"
-                id="inputPassword"
-                placeholder="Password"
                 required="required"
-                name="password"
+                value="<?php echo $email; ?>"
+              ></textarea>
+            </div>
+            <div class="form-group">
+            <label for="kategori">Tanggal Kejadian :</label>
+              <input
+                type="date"
+                class="form-control shadow-none"
+                id="inputDate"
+                required="required"
+                name="username"
+                value="<?php echo $username; ?>"
               />
+            </div>
+            <div class="form-group">
+            <label for="kategori">Lokasi/Alamat:</label>
+              <input
+                type="text"
+                class="form-control shadow-none"
+                id="inputText"
+                required="required"
+                name="telp"
+                value="<?php echo $telp; ?>"
+              />
+            </div>
+            <div class="form-group">
+              <label for="kategori">Kategori:</label>
+              <select class="form-control" id="kategori">
+                <option></option>
+                <option>Aduan</option>
+                <option>Saran</option>
+              </select>
             </div>
             <div class="form-group">
               <button
                 type="submit"
                 class="btn btn-green shadow-none"
-                name="login"
+                name="lap_anonim"
               >
-                Login
+                LAPOR !
               </button>
             </div>
-            <center>
-              <p>Belum punya akun? <a href="form_register_user.php">DAFTAR</a>.</p>
-            </center>
-            <center>
-              <p>
-                Ingin Lapor Secara Anonim?
-                <a href="list_lapor_anonim.php">KLIK DISINI</a>.
-              </p>
-            </center>
+            <p>Kembali Ke Halaman Utama <a href="index.php">HOME</a></p>
           </form>
         </div>
       </div>
@@ -123,6 +157,5 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
-    
   </body>
 </html>
